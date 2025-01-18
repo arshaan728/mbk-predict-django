@@ -101,7 +101,7 @@ def hello():
 
 
 @app.route('/hellow' , methods=['GET'])
-def hello():
+def hellotwo():
    return jsonify({"message":"hi"})
 
 
