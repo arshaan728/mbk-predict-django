@@ -1,4 +1,4 @@
-from flask import Flask , request
+from flask import Flask , request,jsonify
 
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -8,6 +8,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn import metrics
 import requests
 import csv
+
 from openpyxl import Workbook
 # import xlsxwriter
 
@@ -97,6 +98,11 @@ def hello():
 
       
  return predictedvalues
+
+
+@app.route('/hellow' , methods=['GET'])
+def hello():
+   return jsonify({"message":"hi"})
 
 
 if __name__ == '__main__':
