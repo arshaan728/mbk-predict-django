@@ -8,6 +8,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn import metrics
 import requests
 import csv
+import awsgi
 
 from openpyxl import Workbook
 # import xlsxwriter
@@ -104,6 +105,10 @@ def hello():
 def hellotwo():
    return jsonify({"message":"hi"})
 
+def lambda_handler(event,context):
+   return awsgi.response(app,event, context)
+
+
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0' , port=8000)
